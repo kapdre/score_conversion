@@ -19,11 +19,11 @@ class CSVParser
 end
 
 class ConversionTable
-  attr_reader :raw_score, :scaled_score #,:percentile
+  attr_reader :raw_score, :scaled_score, :percentile
 
   def initialize(row)
     @raw_score = row['Raw Score']
     @scaled_score = row['Scaled Score']
-    # @percentile = row['Percentile']
+    @percentile = row['Percentile']
   end
 end

@@ -9,7 +9,7 @@ def create_xml(tables, filename, title)
 	builder = Nokogiri::XML::Builder.new do |xml|
 	  xml.scoreConversionTable('name' => "#{title}") {
 	  	tables.each do |table|
-	  	  xml.scoreConversionEntry('n' => "#{table.raw_score}", 'scaledScore' => "#{table.scaled_score}") #'percentile' => "#{table.percentile}"
+	  	  xml.scoreConversionEntry('n' => "#{table.raw_score}", 'scaledScore' => "#{table.scaled_score}", 'percentile' => "#{table.percentile}")
 	 	  end
 	  }
 	end
@@ -17,8 +17,6 @@ def create_xml(tables, filename, title)
 
   File.write("./xmls/#{filename}.xml", xml)
 end
-
-
 
 tables = CSVParser.new(filename).tables
 
